@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-Bit Title Screens · public-domain classics, NES-style</title>
+<meta name="description" content="8-Bit Title Screens — recognizable PUBLIC-DOMAIN melodies (Ode to Joy, Fur Elise, Eine kleine Nachtmusik, In the Hall of the Mountain King, Canon in D, Greensleeves, William Tell, Habanera) rendered as NES 2A03 chiptune — two pulse channels, triangle bass, noise drums. Looping title-screen snippets, each downloadable as a .wav. Compositions are public domain; the synthesis is original. David Lee Wise / Bridge-Burners LLC, ROOT0.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Spectral:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{ --bg:#0a0712; --panel:#130c20; --line:rgba(160,150,200,.16); --lead:#8f86a8; --lead-dim:#5a5270;
+    --parch:#ece6f4; --parch-dim:#bcb2cc; --pink:#e85aa0; --green:#5fe08a; --gold:#ffd166; --cyan:#5fd0ea; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--parch);font-family:"Spectral",Georgia,serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;min-height:100vh;display:flex;justify-content:center;
+    background-image:radial-gradient(900px 520px at 50% -12%,rgba(232,90,160,.14),transparent 62%),repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 3px);}
+  .wrap{max-width:780px;width:100%;padding:34px 22px 56px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--green)}
+  h1{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:clamp(26px,6.5vw,40px);margin:8px 0 0;line-height:1.02;letter-spacing:-.5px;
+    color:var(--parch);text-shadow:2px 2px 0 var(--pink),4px 4px 0 rgba(95,208,234,.4)}
+  .sub{font-style:italic;font-weight:300;color:var(--parch-dim);font-size:16px;margin:16px 0 0;max-width:64ch}
+  .sub b{font-style:normal;font-weight:400;color:var(--parch)} .sub .p{color:var(--pink)} .sub .g{color:var(--green)}
+  h2{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--green);
+    margin:30px 0 14px;font-weight:600;border-top:1px solid var(--line);padding-top:18px}
+  code.k{font-family:"IBM Plex Mono",monospace;font-size:.9em;color:var(--gold)}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .tune{cursor:pointer;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:13px 15px;transition:.13s;text-align:left;
+    display:flex;flex-direction:column;gap:3px}
+  .tune:hover{border-color:rgba(232,90,160,.5);transform:translateY(-1px)}
+  .tune.on{border-color:var(--green);background:rgba(95,224,138,.07);box-shadow:0 0 0 1px rgba(95,224,138,.3)}
+  .tune .nm{font-family:"IBM Plex Mono",monospace;font-size:12.5px;font-weight:600;color:var(--parch);display:flex;gap:6px;align-items:center}
+  .tune .nm .pl{color:var(--pink)} .tune.on .nm .pl{color:var(--green)}
+  .tune .by{font-family:"IBM Plex Mono",monospace;font-size:9.5px;color:var(--lead);letter-spacing:.03em}
+  .tune .pd{font-family:"IBM Plex Mono",monospace;font-size:8px;color:var(--green);letter-spacing:.06em;margin-top:2px}
+
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
+  button.ctl{cursor:pointer;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:7px;color:var(--parch);
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.03em;padding:9px 14px;transition:.13s}
+  button.ctl:hover{border-color:var(--green);color:var(--green)}
+  .np{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--lead);margin-top:12px;min-height:16px;letter-spacing:.03em}
+  .np b{color:var(--gold)} .np .pd{color:var(--green)}
+  .meter{display:inline-flex;gap:2px;vertical-align:middle;margin-left:8px}
+  .meter i{width:3px;height:10px;background:var(--green);display:inline-block;border-radius:1px;animation:eq 0.8s infinite}
+  .meter i:nth-child(2){animation-delay:.15s} .meter i:nth-child(3){animation-delay:.3s} .meter i:nth-child(4){animation-delay:.45s}
+  @keyframes eq{0%,100%{height:3px}50%{height:11px}}
+
+  .note{margin-top:30px;border-top:1px solid var(--line);padding-top:16px;font-family:"IBM Plex Mono",monospace;
+    font-size:11px;line-height:1.9;color:var(--lead-dim)}
+  .note b{color:var(--green);font-weight:500} .note .pk{color:var(--pink)}
+  .foot{display:flex;justify-content:space-between;margin-top:22px;font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;color:var(--lead-dim);letter-spacing:.05em;flex-wrap:wrap;gap:6px}
+  .foot a{color:var(--pink);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">▸ insert coin · 2A03 · public domain</div>
+  <h1>8-BIT TITLE SCREENS</h1>
+  <p class="sub">Recognizable tunes — the ones that <i>actually</i> ring a bell — rendered the way an <b class="g">NES</b> would: two <b>pulse</b> squares, a <b>triangle</b> bass, and <b>noise</b> drums. Every track here is a <b class="p">public-domain</b> composition (the composers all died well over a century ago); the chiptune arrangement and the synthesis are made fresh on this page, so no copyrighted recording is touched. Pick one — it loops like a title screen — and download any as a <code class="k">.wav</code>.</p>
+
+  <h2>select your screen</h2>
+  <div class="grid" id="grid"></div>
+
+  <div class="bar">
+    <button class="ctl" id="stop">■ stop</button>
+    <button class="ctl" id="dl">⬇ download .wav</button>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--lead-dim)">looping · ~12s wav</span>
+  </div>
+  <div class="np" id="np">choose a title screen — all public domain</div>
+
+  <div class="note">
+    <b>why these.</b> the recognizable game tunes you're thinking of (Mario, Zelda, Mega Man…) are <span class="pk">copyrighted</span> — I won't reproduce them. So these are the recognizable melodies that are genuinely <b>public domain</b>: their composers died long ago (Pachelbel 1706, Mozart 1791, Beethoven 1827, Rossini 1868, Bizet &amp; Grieg later that century; Greensleeves is older still), which puts the <i>compositions</i> in the public domain worldwide.
+    <br><b>what's mine.</b> the chiptune <b>arrangement</b> (which notes go to which channel, the duty cycles, the drums) and the <b>synthesis</b> are original and generated live — no sampled or copyrighted recording or published arrangement is used. melodies are transcribed by ear to the well-known themes.
+    <br><b>the chip.</b> two pulse channels (12.5 / 25 / 50% duty squares, built from the pulse Fourier series), a triangle bass, and a noise channel for drums — a faithful nod to the NES 2A03. nothing is downloaded to play; the <code class="k">.wav</code> you save is rendered in your browser.
+  </div>
+
+  <div class="foot">
+    <span>8-BIT TITLE SCREENS · public domain · 2026-06-26</span>
+    <span>David Lee Wise · Bridge-Burners LLC · <a href="https://davidwise01.github.io/the-sapphic-melody/">the Sapphic Melody ↗</a></span>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  function m2f(m){ return 440*Math.pow(2,(m-69)/12); }
+
+  // ── recognizable PUBLIC-DOMAIN melodies (lead = [[midi, beats]]) ──
+  var TUNES=[
+   {id:'ode', name:'Ode to Joy', by:'Beethoven · 1824', bpm:120, duty:0.5, drums:true, harmony:true,
+    lead:[[64,1],[64,1],[65,1],[67,1],[67,1],[65,1],[64,1],[62,1],[60,1],[60,1],[62,1],[64,1],[64,1.5],[62,.5],[62,2],
+          [64,1],[64,1],[65,1],[67,1],[67,1],[65,1],[64,1],[62,1],[60,1],[60,1],[62,1],[64,1],[62,1.5],[60,.5],[60,2]]},
+   {id:'elise', name:'Für Elise', by:'Beethoven · 1810', bpm:128, duty:0.25, drums:false, harmony:true,
+    lead:[[76,.5],[75,.5],[76,.5],[75,.5],[76,.5],[71,.5],[74,.5],[72,.5],[69,1.5],
+          [60,.5],[64,.5],[69,.5],[71,1.5],[64,.5],[68,.5],[71,.5],[72,1.5]]},
+   {id:'nacht', name:'Eine kleine Nachtmusik', by:'Mozart · 1787', bpm:132, duty:0.5, drums:true, harmony:true,
+    lead:[[67,1],[62,1],[67,.5],[62,.5],[67,.5],[71,.5],[74,2],[74,1],[69,1],[74,.5],[69,.5],[74,.5],[78,.5],[81,2]]},
+   {id:'mountain', name:'In the Hall of the Mountain King', by:'Grieg · 1875', bpm:112, duty:0.25, drums:true, harmony:false,
+    lead:[[59,.5],[61,.5],[62,.5],[64,.5],[66,.5],[62,.5],[66,1],[65,.5],[64,.5],[61,.5],[64,1.5],
+          [62,.5],[64,.5],[65,.5],[67,.5],[69,.5],[65,.5],[69,1],[68,.5],[67,.5],[64,.5],[67,1.5]]},
+   {id:'canon', name:'Canon in D', by:'Pachelbel · c.1680', bpm:104, duty:0.5, drums:false, harmony:true,
+    lead:[[78,2],[76,2],[74,2],[73,2],[71,2],[69,2],[71,2],[73,2],[74,2],[73,2],[71,2],[69,2],[67,2],[66,2],[67,2],[69,2]],
+    bass:[[50,2],[57,2],[59,2],[54,2],[55,2],[50,2],[55,2],[57,2]]},
+   {id:'greensleeves', name:'Greensleeves', by:'Traditional · 16th c.', bpm:100, duty:0.25, drums:false, harmony:false, vibrato:true,
+    lead:[[69,1],[72,1.5],[74,.5],[76,1.5],[77,.5],[76,1],[74,1.5],[71,.5],[67,1],[69,1.5],[71,.5],[72,1.5],[69,.5],[69,1],[68,1],[69,2]]},
+   {id:'welltell', name:'William Tell (gallop)', by:'Rossini · 1829', bpm:128, duty:0.5, drums:true, harmony:true,
+    lead:[[64,.33],[64,.33],[64,.34],[64,.5],[64,.5],[64,.33],[64,.33],[64,.34],[64,.5],[64,.5],
+          [64,.33],[64,.33],[64,.34],[67,.5],[72,.5],[72,.33],[74,.33],[72,.34],[67,.5],[64,.5]]},
+   {id:'habanera', name:'Habanera (Carmen)', by:'Bizet · 1875', bpm:104, duty:0.25, drums:true, harmony:false, vibrato:true,
+    lead:[[74,1.5],[73,.5],[72,.5],[71,.5],[70,.5],[69,.5],[69,1],[69,.5],[70,.5],[71,.5],[72,.5],[73,.5],[74,1.5]]}
+  ];
+
+  // ── NES synth (2A03) ──
+  var ctx=null, master=null;
+  function init(){ if(ctx)return; ctx=new (window.AudioContext||window.webkitAudioContext)();
+    master=ctx.createGain(); master.gain.value=0.85; master.connect(ctx.destination); }
+  function getPulse(actx,duty){ actx.__pw=actx.__pw||{}; var k='d'+duty; if(actx.__pw[k])return actx.__pw[k];
+    var n=20, real=new Float32Array(n), imag=new Float32Array(n);
+    for(var i=1;i<n;i++) imag[i]=(2/(i*Math.PI))*Math.sin(i*Math.PI*duty);
+    var w=actx.createPeriodicWave(real,imag); actx.__pw[k]=w; return w; }
+  function nPulse(actx,dest,freq,t,dur,duty,gain,vib){ var o=actx.createOscillator(); o.setPeriodicWave(getPulse(actx,duty));
+    o.frequency.setValueAtTime(freq,t);
+    if(vib){ var lfo=actx.createOscillator(), lg=actx.createGain(); lfo.frequency.value=6; lg.gain.value=freq*0.013;
+      lfo.connect(lg).connect(o.frequency); lfo.start(t); lfo.stop(t+dur+0.02); }
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(gain,t+0.006);
+    g.gain.setValueAtTime(gain,t+dur*0.7); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(dest); o.start(t); o.stop(t+dur+0.03); }
+  function nTri(actx,dest,freq,t,dur,gain){ var o=actx.createOscillator(); o.type='triangle'; o.frequency.setValueAtTime(freq,t);
+    var g=actx.createGain(); g.gain.setValueAtTime(0.0001,t); g.gain.linearRampToValueAtTime(gain,t+0.01);
+    g.gain.setValueAtTime(gain,t+dur*0.85); g.gain.exponentialRampToValueAtTime(0.0001,t+dur);
+    o.connect(g).connect(dest); o.start(t); o.stop(t+dur+0.02); }
+  function nbuf(actx){ if(actx.__nb)return actx.__nb; var b=actx.createBuffer(1,Math.floor(actx.sampleRate*0.3),actx.sampleRate),
+    d=b.getChannelData(0); for(var i=0;i<d.length;i++) d[i]=Math.random()*2-1; actx.__nb=b; return b; }
+  function nKick(actx,dest,t){ var o=actx.createOscillator(),g=actx.createGain(); o.frequency.setValueAtTime(150,t);
+    o.frequency.exponentialRampToValueAtTime(48,t+0.1); g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.55,t+0.005);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+0.16); o.connect(g).connect(dest); o.start(t); o.stop(t+0.18); }
+  function nDrum(actx,dest,t,kind){ var s=actx.createBufferSource(); s.buffer=nbuf(actx); var f=actx.createBiquadFilter(),g=actx.createGain();
+    if(kind==='snare'){ f.type='bandpass'; f.frequency.value=1800; g.gain.setValueAtTime(0.16,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.1);
+      s.connect(f).connect(g).connect(dest); s.start(t); s.stop(t+0.12); }
+    else { f.type='highpass'; f.frequency.value=8500; g.gain.setValueAtTime(0.07,t); g.gain.exponentialRampToValueAtTime(0.0001,t+0.025);
+      s.connect(f).connect(g).connect(dest); s.start(t); s.stop(t+0.04); } }
+
+  function pass(actx,dest,tune,startT,beat,hardEnd){
+    var t=startT, duty=tune.duty||0.5, gain=tune.gain||0.2;
+    tune.lead.forEach(function(n){ if(t>=hardEnd) return; var dur=n[1]*beat;
+      nPulse(actx,dest,m2f(n[0]),t,dur*0.9,duty,gain,tune.vibrato);
+      if(tune.harmony) nPulse(actx,dest,m2f(n[0]-12),t,dur*0.9,0.25,gain*0.5);
+      if(!tune.bass && n[1]>=1) nTri(actx,dest,m2f(n[0]-24),t,dur,0.4);
+      t+=dur; });
+    var leadEnd=t;
+    if(tune.bass){ var bt=startT; while(bt<leadEnd-0.01){ for(var j=0;j<tune.bass.length && bt<leadEnd-0.01;j++){ var bn=tune.bass[j], bd=bn[1]*beat;
+      nTri(actx,dest,m2f(bn[0]),bt,Math.min(bd,leadEnd-bt)*0.95,0.45); bt+=bd; } } }
+    if(tune.drums){ var dt=startT,k=0; while(dt<leadEnd-0.01){ nDrum(actx,dest,dt,'hat'); if(k%2===0) nKick(actx,dest,dt); if(k%4===2) nDrum(actx,dest,dt,'snare'); dt+=beat/2; k++; } }
+    return leadEnd;
+  }
+  function renderTune(actx,dest,tune,startT,seconds){
+    var beat=60/tune.bpm, endT=startT+seconds, t=startT;
+    while(t<endT){ t=pass(actx,dest,tune,t,beat,endT)+beat*0.5; }
+    return t;
+  }
+  function bufToWav(buf){ var nch=buf.numberOfChannels, sr=buf.sampleRate, n=buf.length, len=n*nch*2+44,
+    ab=new ArrayBuffer(len), v=new DataView(ab); function str(o,s){ for(var i=0;i<s.length;i++) v.setUint8(o+i,s.charCodeAt(i)); }
+    str(0,'RIFF'); v.setUint32(4,len-8,true); str(8,'WAVE'); str(12,'fmt '); v.setUint32(16,16,true); v.setUint16(20,1,true);
+    v.setUint16(22,nch,true); v.setUint32(24,sr,true); v.setUint32(28,sr*nch*2,true); v.setUint16(32,nch*2,true); v.setUint16(34,16,true);
+    str(36,'data'); v.setUint32(40,len-44,true); var off=44;
+    for(var i=0;i<n;i++){ for(var c=0;c<nch;c++){ var x=Math.max(-1,Math.min(1,buf.getChannelData(c)[i])); v.setInt16(off,x<0?x*0x8000:x*0x7FFF,true); off+=2; } }
+    return new Blob([ab],{type:'audio/wav'}); }
+
+  // ── transport ──
+  var playing=false, timer=null, cur=null;
+  function start(tune){ init(); if(ctx.state==='suspended')ctx.resume(); stop(); playing=true; cur=tune;
+    document.querySelectorAll('.tune').forEach(function(b){ b.classList.toggle('on',b.getAttribute('data-id')===tune.id); });
+    document.getElementById('np').innerHTML='♪ <b>'+tune.name+'</b> <span style="color:var(--lead)">'+tune.by+'</span> <span class="pd">[PUBLIC DOMAIN]</span><span class="meter"><i></i><i></i><i></i><i></i></span>';
+    sched(); }
+  function sched(){ if(!playing)return; var chunk=12; renderTune(ctx,master,cur,ctx.currentTime+0.05,chunk); timer=setTimeout(sched,(chunk-0.25)*1000); }
+  function stop(){ playing=false; clearTimeout(timer); document.querySelectorAll('.tune').forEach(function(b){ b.classList.remove('on'); }); }
+  function download(tune){ init(); var OC=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+    if(!OC){ document.getElementById('np').textContent='offline render not supported here'; return; }
+    var sr=44100, secs=12, oc=new OC(1,Math.floor(sr*secs),sr), mg=oc.createGain(); mg.gain.value=0.85; mg.connect(oc.destination);
+    renderTune(oc,mg,tune,0.05,secs-0.6);
+    document.getElementById('np').textContent='rendering '+tune.name+' → .wav …';
+    oc.startRendering().then(function(b){ var blob=bufToWav(b), a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+      a.download='8bit-'+tune.id+'.wav'; document.body.appendChild(a); a.click(); a.remove();
+      document.getElementById('np').innerHTML='⬇ saved <b>8bit-'+tune.id+'.wav</b> (~12s) · <span class="pd">public domain</span>'; }); }
+
+  // ── build the grid ──
+  var grid=document.getElementById('grid');
+  grid.innerHTML=TUNES.map(function(tn){ return '<button class="tune" data-id="'+tn.id+'">'
+    +'<span class="nm"><span class="pl">▶</span>'+tn.name+'</span><span class="by">'+tn.by+'</span><span class="pd">◈ public domain</span></button>'; }).join('');
+  grid.querySelectorAll('.tune').forEach(function(b){ b.onclick=function(){ var tn=TUNES.filter(function(x){return x.id===b.getAttribute('data-id');})[0]; start(tn); }; });
+  document.getElementById('stop').onclick=function(){ stop(); document.getElementById('np').textContent='stopped'; };
+  document.getElementById('dl').onclick=function(){ download(cur||TUNES[0]); };
+})();
+</script>
+</body>
+</html>
