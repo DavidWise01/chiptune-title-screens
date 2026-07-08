@@ -4,6 +4,6 @@ slug  : chiptune-title-screens
 seal  : c3cd2933e20b2a0b7c8f89fe2012b38ee28b051cb0a2e948e759334ce2c91794
 prev  : 8155f20a5f71228ebc51aa553a97d0622840147a41908f1619751bd5b0e6355e
 link  : 901796cf0e72fea70ca87aca20f3bde6ee05ce1b4c4d584fcf657ecf56a39159
-head  : 3447d3a0533aaf1e29a8bdc67a9774884fb3ae9dbc8a17064b7a008ca3c4ec90
+head  : 13f9ace173ef2e60af38912ba329b4afcb5a38b84a0e4495e8d30327f8c99cc2
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
