@@ -2,8 +2,8 @@ ROOT0-DLW-CHAIN-v1
 index : 752
 slug  : chiptune-title-screens
 seal  : c3cd2933e20b2a0b7c8f89fe2012b38ee28b051cb0a2e948e759334ce2c91794
-prev  : 10bd1bdd17c12ec24836e6c01485e2ebe3a021f7d3fd83e48fb1bdbe06e54702
-link  : 03b347616e36f59cfd9631c5e9b435995ecbdde55e080aea664dc17c2519bc67
-head  : f7444724835fd968bd2eac85811f9fa823a18d20a57907b4fade8d96b70b5409
+prev  : bbfa9165578f184eaad3fc619f1ad77f643e3aa4a5569bdc2e8aa4c79431b75c
+link  : 0ac9c7632f910aa2387cc5069efdb7d6a8d50f118fa068e899b78b505d5d1d53
+head  : c4d41afeaef76470528856d54d86cf480a0e1c2fc8ebc60fbb9eb8e442585f2b
 
 — the tether: link = sha256(index|slug|seal|prev). the chain head commits to the whole corpus.
